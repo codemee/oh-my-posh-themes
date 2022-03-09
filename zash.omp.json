@@ -1,0 +1,57 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "#E36464",
+          "properties": {
+            "display_host": false,
+            "template": "{{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }} "
+          },
+          "style": "plain",
+          "type": "session"
+        },
+        {
+          "foreground": "#62ED8B",
+          "properties": {
+            "template": "\u279c"
+          },
+          "style": "plain",
+          "type": "text"
+        },
+        {
+          "foreground": "#56B6C2",
+          "properties": {
+            "style": "folder",
+            "template": " {{ .Path }}"
+          },
+          "style": "plain",
+          "type": "path"
+        },
+        {
+          "foreground": "#D4AAFC",
+          "properties": {
+            "branch_icon": "",
+            "fetch_status": false,
+            "template": " <#DDB15F>git(</>{{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }}<#DDB15F>)</>"
+          },
+          "style": "plain",
+          "type": "git"
+        },
+        {
+          "foreground": "#DCB977",
+          "properties": {
+            "template": "\uf119{{ if gt .Code 0 }}\uf00d{{ else }}\uf42e{{ end }}"
+          },
+          "style": "plain",
+          "type": "exit"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "final_space": true,
+  "version": 1
+}

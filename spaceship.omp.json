@@ -1,0 +1,50 @@
+{
+  "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+  "blocks": [
+    {
+      "alignment": "left",
+      "segments": [
+        {
+          "foreground": "lightYellow",
+          "properties": {
+            "display_host": false,
+            "display_user": true,
+            "template": "{{ if .SSHSession }}\uf817 {{ end }}{{ .UserName }} "
+          },
+          "style": "plain",
+          "type": "session"
+        },
+        {
+          "foreground": "cyan",
+          "properties": {
+            "style": "folder",
+            "template": "<#ffffff>in</> {{ .Path }} "
+          },
+          "style": "plain",
+          "type": "path"
+        },
+        {
+          "foreground": "#ff94df",
+          "properties": {
+            "branch_icon": " <#ff94df><b>\ue0a0 </b></>",
+            "fetch_stash_count": true,
+            "fetch_status": false,
+            "template": "<#ffffff>on</> {{ .HEAD }} {{ .BranchStatus }}{{ if .Working.Changed }} \uf044 {{ .Working.String }}{{ end }}{{ if and (.Staging.Changed) (.Working.Changed) }} |{{ end }}{{ if .Staging.Changed }} \uf046 {{ .Staging.String }}{{ end }}{{ if gt .StashCount 0}} \uf692 {{ .StashCount }}{{ end }}{{ if gt .WorktreeCount 0}} \uf1bb {{ .WorktreeCount }}{{ end }} "
+          },
+          "style": "plain",
+          "type": "git"
+        },
+        {
+          "foreground": "lightGreen",
+          "properties": {
+            "template": "\u276f "
+          },
+          "style": "plain",
+          "type": "text"
+        }
+      ],
+      "type": "prompt"
+    }
+  ],
+  "version": 1
+}
